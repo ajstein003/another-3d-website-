@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cube Slider Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+
+  <style>
+
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.intro {
+  position: fixed;
+  top: 40%;
+  left: 10%;
+  width: 40%;
+  padding: 20px;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  transition: opacity 0.5s, pointer-events 0.5s;
+}
+
+.intro h1 {
+  margin: 0 0 10px 0;
+  font-size: 36px;
+  padding-bottom: 2rem;
+}
+
+.intro p {
+  margin: 0;
+  font-size: smaller;
+}
+
+
+
+    /* Add CSS styles for the cube */
+    .cube {
+      position: fixed;
+      top: 40%;
+      left: 70%;
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      transform: rotateX(0deg) rotateY(0deg);
+      transition: transform 2s;
+    }
+
+    .cube:hover {
+      transform: rotateX(360deg);
+    }
+
+    .side {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(0, 0, 0, 3); 
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 200px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .side:hover {
+      opacity: 1;
+    }
+
+    .front {
+      transform: translateZ(100px);
+    }
+
+    .back {
+      transform: rotateY(180deg) translateZ(100px);
+    }
+
+    .right {
+      transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .left {
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    .top {
+      transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .bottom {
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    /* Add background color */
+    body {
+      background-color: #296b604d;
+      transition: background-color 0.5s;
+    }
+
+    /* Add description styles */
+    .description {
+      position: fixed;
+      bottom: -200%;
+      color: #000000;
+      font-family: 'Poppins', sans-serif;
+      opacity: 0;
+      transition: opacity 0.8s, transform 0.8s, bottom 0.8s;
+      width: 200px;
+      padding: 20px;
+      font-size: 16px;
+      text-align: justify;
+    }
+
+    .show-description {
+      opacity: 1;
+      bottom: 40%;
+      left: 10%;
+      width: 40%;
+      text-size-adjust: larger;
+      transition-delay: 0.7s;
+    }
+
+    .description h2 {
+  font-size: 32px; /* Update the font size for headings */
+}
+
+.description p {
+  font-size: 18px; /* Update the font size for paragraphs */
+}
+
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 3s ease, transform 3s ease;
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 3s ease, transform 3s ease;
+    }
+
+    .sphere {
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    .sphere .tag {
+      display: inline-block;
+      font-size: 16px;
+      margin: 5px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background-color: #337ab7;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .sphere .tag:hover {
+      background-color: #23527c;
+    }
+  </style>
+</head>
+<body>
+
+<div class="intro">
+    <h1>Hey! Welcome to My Portfolio</h1>
+    <p>Explore my skills, projects, and more! Have a nice time :)</p>
+  </div>
+
+<div class="cube">
+  <div class="side front" onclick="openContent(1); changeBackgroundColor('#FF0000')">About Me</div>
+  <div class="side back" onclick="openContent(2); changeBackgroundColor('#00FF00')">Skills</div>
+  <div class="side right" onclick="openContent(3); changeBackgroundColor('#0000FF')">Projects</div>
+  <div class="side left" onclick="openContent(4); changeBackgroundColor('#FFFF00')">Contact</div>
+  <div class="side top" onclick="openContent(5); changeBackgroundColor('#FF00FF')">Resume</div>
+  <div class="side bottom" onclick="openContent(6); changeBackgroundColor('#00FFFF')"></div>
+</div>
+
+
+
+<div id="content-1" class="description">
+  <h2>About Me</h2>
+  <p>My name is Arjab Chakrabarti, and I am currently a third-year student pursuing a degree in Computer Science at KIIT University. I have a strong passion for web development and machine learning, and I am dedicated to honing my skills in these areas.</p>
+</div>
+
+<div id="content-2" class="description">
+  <h2>Skills</h2>
+  <div class="sphere"></div>
+</div>
+
+<!-- Include the TagCloud library -->
+<script src="https://cdn.jsdelivr.net/npm/tagcloud@2.0.0/dist/tagcloud.min.js"></script>
+
+<script>
+  const myTags = [
+    'JavaScript', 'CSS', 'HTML',
+    'C', 'C++', 'Pytorch',
+    'Python', 'Java', 'Git',
+    'SQL',
+  ];
+
+  var tagCloud = TagCloud('.sphere', myTags, {
+    radius: 200,
+    maxSpeed: 'fast',
+    initSpeed: 'fast',
+    direction: 135,
+    keep: true
+  });
+</script>
+
+<div id="content-3" class="description">
+  <h2>Projects</h2>
+  <ul>
+    <li>AI Flight Simulator</li>
+    <li>IEEE Researh Paper on Video Forgery Detection</li>
+    <li>IEEE Survey Paper on Conversational AI and ChatGPT</li>
+  </ul>
+</div>
+
+<div id="content-4" class="description">
+  <h2>Contact</h2>
+  <p>Here You Go!</p>
+  <ul>
+    <li><a href="mailto:chakrabartiarjab@gmail.com">Mail</a></li>
+    <li><a href="https://github.com/ajstein003">Github</a></li>
+    <li><a href="https://www.linkedin.com/in/arjab-chakrabarti-96a743265/">LinkedIn</a></li>
+    <li><a href="https://instagram.com/itsarjab?igshid=YmMyMTA2M2Y=">Instagram</a></li>
+  </ul>
+</div>
+
+<div id="content-5" class="description">
+  <h2>Resume</h2>
+  <a href="/Users/ajstein03/Desktop/Codes/portfolio/Resume.pdf" target="_blank">Download Resume</a>
+</div>
+
+<script>
+
+var intro = document.querySelector('.intro');
+
+function hideIntro() {
+  intro.style.opacity = '0';
+  intro.style.pointerEvents = 'none';
+}
+
+var cubeSides = document.querySelectorAll('.side');
+cubeSides.forEach(function (side) {
+  side.addEventListener('click', hideIntro);
+});
+
+  var cube = document.querySelector('.cube');
+  var cubeRect = cube.getBoundingClientRect();
+  var cubeCenterX = cubeRect.left + cubeRect.width / 2;
+  var cubeCenterY = cubeRect.top + cubeRect.height / 2;
+
+  document.addEventListener('mousemove', function (event) {
+    var mouseX = event.clientX;
+    var mouseY = event.clientY;
+
+    var rotateX = -(mouseY - cubeCenterY) / 1.3;  // Increase the divisor for faster rotation
+    var rotateY = (mouseX - cubeCenterX) / 1.3;   // Increase the divisor for faster rotation
+
+    cube.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+  });
+
+  function openContent(contentId) {
+    var descriptions = document.getElementsByClassName('description');
+
+    for (var i = 0; i < descriptions.length; i++) {
+      if (descriptions[i].classList.contains('show-description')) {
+        descriptions[i].classList.remove('show-description');
+        descriptions[i].classList.add('fade-out');
+      }
+    }
+
+    var selectedContent = document.getElementById('content-' + contentId);
+    selectedContent.classList.add('show-description');
+    selectedContent.classList.remove('fade-out');
+    selectedContent.classList.add('fade-in');
+
+    var colors = [ '#ffa8B6', '#a0d2eb', '#ff1d58', '#d0bdf4', ''];
+    var randomColor = colors[Math.floor(Math.random() * colors.length)];
+    changeBackgroundColor(randomColor);
+  }
+
+
+</script>
+</body>
+</html>
